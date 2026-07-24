@@ -1,7 +1,6 @@
 import dotenv from "dotenv";
-import express from "express";
-const app = express();
-import morgan from "morgan";
+import express from "express"; 
+import { app } from "./app.js";
 import dbConnect from "./config/dbConnect.js";
 
 dotenv.config({
@@ -18,9 +17,6 @@ dbConnect()
     console.log("db connection failed ! ", err);
   });
 
-app.use(morgan("dev"));
-app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("server running...");
-});
+ 
+ 
