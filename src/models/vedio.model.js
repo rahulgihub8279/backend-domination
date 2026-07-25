@@ -39,5 +39,6 @@ const vedioSchema = new Schema(
   },
   { timestamps: true }
 );
+
 vedioSchema.plugin(MAP);
 export const Vedio = mongoose.model("Vedio", vedioSchema);

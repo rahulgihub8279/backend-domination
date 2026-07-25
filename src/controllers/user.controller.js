@@ -1,6 +1,15 @@
 import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
+const generateAccessAndRefreshTokens = async (userId) => {
+  try {
+    const user = await User.findById(userId);
+    
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
 export const registerUser = async (req, res) => {
   try {
     const { username, email, fullname, password } = req.body;
@@ -62,10 +71,6 @@ export const registerUser = async (req, res) => {
 
 export const loginUSer = async (req, res) => {
   try {
-    // check user exist in db
-    // compare password
-    // generate token
-    // save in cookie
     const { email, password, username } = req.body;
     if (!username || !email) {
       return res.status(400).json({
