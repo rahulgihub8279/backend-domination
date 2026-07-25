@@ -1,0 +1,17 @@
+name: ci/cd pipeline
+on: 
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: check out repo code
+        run: |
+          echo "this is checkout step"
+          uname -a
+        
+    
+  
