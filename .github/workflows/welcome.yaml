@@ -1,28 +1,16 @@
-name: ci/cd pipeline
+name: env demo
 on:
   push:
-    branches: 
+    branches:
       - main
-      - develop*
-      - 'release/**'
-  pull_request: 
-    types: 
-      - opened
-    branches: 
-      - main    
   workflow_dispatch:
+env:
+  APP_ENV: "dev"
+
 jobs:
-  demo:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - name: check out repo code
-        run: |
-            npm install 
-      - name: print index.html
-        run: cat index.html      
-      - name: print variable
-        run: echo "name is ${{vars.NAME}}"   
-      - name: print secret
-        run: echo "secret is ${{secrets.DOCKER_PASSWORD}}"    
- 
+      - uses: actions/checkout@v4
+      - name: connecting to env
+        run: echo "app is connecting to $APP_ENV"
