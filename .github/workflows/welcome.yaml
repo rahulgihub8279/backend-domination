@@ -1,7 +1,5 @@
 name: ci/cd pipeline
-on: 
-  push:
-    branches: [main]
+on:  
   workflow_dispatch:
 jobs:
   build:
@@ -12,6 +10,24 @@ jobs:
         run: |
           echo "this is checkout step"
           uname -a
-        
+          pwd
+          ls -l
+
+      - name: npm package install
+        run: npm install
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing 
+        run: npm run test  
+      - name: check the testing
+        run: echo "test ok"      
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy the code
+        run: node -v      
     
   
