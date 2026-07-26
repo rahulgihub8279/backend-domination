@@ -17,9 +17,7 @@ jobs:
   test:
     needs: build
     runs-on: ubuntu-latest
-    steps:
-      - name: install npm
-        run: npm install 
+    steps: 
       - name: check the testing
         run: echo "test ok"      
   deploy:
