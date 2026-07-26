@@ -1,38 +1,24 @@
 name: ci/cd pipeline
 on:
   push:
-    branches: [main]  
+    branches: 
+      - main
+      - develop*
+      - 'release/**'
+  pull_request: 
+    types: 
+      - opened
+    branches: 
+      - main    
   workflow_dispatch:
 jobs:
-  build:
+  demo:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - name: check out repo code
         run: |
             npm install 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v6
-      - name: check the testing
-        run: |
-         ls -l 
-         pwd
-         echo "test start"      
-         npm install 
-         npm test
-
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - name: deploy the code
-        run: |
-         npm install
-         node -v      
-
-    
-  
+      - name: print variable
+        run: echo "name is ${{vars.NAME}}"      
+ 
