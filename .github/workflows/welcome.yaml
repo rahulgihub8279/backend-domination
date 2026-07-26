@@ -18,8 +18,8 @@ jobs:
       - uses: actions/checkout@v6
       - name: check the testing
         run: |
-         ls -l
-         cd /src
+         ls -l 
+         pwd
          echo "test start"      
          npm install 
          npm test
