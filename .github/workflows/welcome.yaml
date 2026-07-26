@@ -14,13 +14,12 @@ jobs:
           uname -a
           pwd
           ls -l
-
-      - name: npm package install
-        run: npm install
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: install npm
+        run: npm install
       - name: testing 
         run: npm run test  
       - name: check the testing
