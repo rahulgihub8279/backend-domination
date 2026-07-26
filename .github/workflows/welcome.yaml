@@ -20,5 +20,7 @@ jobs:
         run: |
             npm install 
       - name: print variable
-        run: echo "name is ${{vars.NAME}}"      
+        run: echo "name is ${{vars.NAME}}"   
+      - name: print secret
+        run: echo "secret is ${{secrets.DOCKER_PASSWORD}}"    
  
