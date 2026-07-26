@@ -19,10 +19,8 @@ jobs:
       - name: check out repo code
         run: |
             npm install 
-            ls -l
-            nproc
-            ps -ef
-            
+      - name: print index.html
+        run: cat index.html      
       - name: print variable
         run: echo "name is ${{vars.NAME}}"   
       - name: print secret
