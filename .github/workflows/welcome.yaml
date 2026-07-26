@@ -10,8 +10,7 @@ jobs:
       - uses: actions/checkout@v6
       - name: check out repo code
         run: |
-            npm install
-            npm run build
+            npm install 
   test:
     needs: build
     runs-on: ubuntu-latest
