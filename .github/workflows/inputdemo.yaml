@@ -1,4 +1,4 @@
-name: input demo
+name: input and context variable
 on:
   push:
     branches:
