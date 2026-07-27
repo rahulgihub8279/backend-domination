@@ -35,4 +35,6 @@ jobs:
       - name: username of repo
         run: echo "username of repo is ${{github.actor}}"
       - name: workflow file name
-        run: echo "workflow file is ${{github.workflow}}"        
+        run: echo "workflow file is ${{github.workflow}}"   
+      - name: print env
+        run: echo "$GITHUB_SHA"       
